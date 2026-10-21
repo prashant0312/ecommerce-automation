@@ -1,5 +1,4 @@
-
-# Maven build output and generated test reports
+﻿# Maven build output and generated reports
 target/
 test-output/
 screenshots/
@@ -9,7 +8,7 @@ screenshots/
 .idea/
 *.iml
 
-# Java
+# Java compiled files
 *.class
 
 # Local environment files and secrets

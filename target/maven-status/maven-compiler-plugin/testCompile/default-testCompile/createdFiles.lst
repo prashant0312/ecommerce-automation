@@ -1,9 +1,0 @@
-com\aiqa\ecommerce\pages\HomePage.class
-com\aiqa\ecommerce\pages\CartPage.class
-com\aiqa\ecommerce\pages\LoginPage.class
-com\aiqa\ecommerce\reports\ExtentTestListener.class
-com\aiqa\ecommerce\utils\ScreenshotUtil.class
-com\aiqa\ecommerce\base\BaseTest.class
-com\aiqa\ecommerce\reports\ExtentReportManager.class
-com\aiqa\ecommerce\tests\LoginTest.class
-com\aiqa\ecommerce\tests\CartTest.class
