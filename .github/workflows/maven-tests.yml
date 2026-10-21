@@ -17,6 +17,13 @@ jobs:
           distribution: temurin
           java-version: '21'
           cache: maven
+      - name: Verify DemoBlaze secrets are configured
+        env:
+            DEMOBLAZE_USERNAME: ${{ secrets.DEMOBLAZE_USERNAME }}
+            DEMOBLAZE_PASSWORD: ${{ secrets.DEMOBLAZE_PASSWORD }}
+        run: |
+            test -n "$DEMOBLAZE_USERNAME" && echo "Username secret is populated" || (echo "Username secret is missing or empty" && exit 1)
+            test -n "$DEMOBLAZE_PASSWORD" && echo "Password secret is populated" || (echo "Password secret is missing or empty" && exit 1)
       - name: Run Selenium Maven Tests
         env:
           CI: 'true'
