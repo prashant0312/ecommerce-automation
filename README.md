@@ -137,4 +137,100 @@ After execution, review the generated output:
 | Output | Location |
 |---|---|
 | ExtentReports HTML report | `target/ExtentReports/ExtentReport.html` |
-| Maven Surefire
+| Maven Surefire reports | `target/surefire-reports/` |
+| Failure screenshots | `target/screenshots/` |
+
+Open the generated ExtentReports HTML file in a browser to inspect the test execution report. Actual output depends on the framework configuration and whether tests fail.
+
+## Test Scenarios
+
+The current TestNG suite contains login and cart-related tests.
+
+| Test class | Purpose |
+|---|---|
+| `LoginTest.java` | Tests valid-login and invalid-login behavior |
+| `CartTest.java` | Tests cart-related functionality |
+
+The framework uses assertions to verify expected application behavior. Refer to the test classes for the detailed steps, locators, and validation logic.
+
+## Latest Verified Test Results
+
+The GitHub Actions workflow completed successfully with the following Maven Surefire results:
+
+| Metric | Result |
+|---|---:|
+| Tests executed | 4 |
+| Failures | 0 |
+| Errors | 0 |
+| Skipped | 0 |
+| Test execution time | 13.53 seconds |
+
+**Result: All four tests passed in the verified CI run.**
+
+## Framework Architecture
+
+The framework follows a layered architecture:
+
+1. **Base Layer:** Manages WebDriver initialization, browser configuration, and teardown.
+2. **Page Layer:** Encapsulates page locators and interactions through page objects.
+3. **Test Layer:** Contains test scenarios, test data, and assertions.
+4. **Utility Layer:** Provides reusable helper functionality, including screenshot capture.
+5. **Reporting Layer:** Configures ExtentReports and test listeners.
+6. **Build and CI Layer:** Uses Maven, TestNG, and GitHub Actions to execute tests.
+
+This separation supports maintainability, reusability, and easier debugging.
+
+## GitHub Actions CI/CD
+
+The workflow is defined in `.github/workflows/maven-tests.yml`.
+
+It is configured to run on:
+
+- Pushes to `main` and `master`
+- Pull requests targeting `main` and `master`
+- Manual execution through GitHub Actions
+
+The workflow:
+
+1. Checks out the repository.
+2. Sets up Java 21.
+3. Verifies that required DemoBlaze secrets are populated.
+4. Runs `mvn --batch-mode clean test`.
+5. Uploads test reports and screenshots as workflow artifacts when available.
+
+Test credentials are supplied through GitHub Actions secrets rather than hard-coded in the repository.
+
+[View GitHub Actions runs](https://github.com/prashant0312/ecommerce-automation/actions)
+
+## Engineering Practices
+
+- Page Object Model for separation of concerns.
+- Reusable automation components and utility methods.
+- Environment variables for sensitive test configuration.
+- Git-based source control and change tracking.
+- Automated test execution and HTML reporting.
+- Failure screenshots for debugging.
+- CI execution with securely configured credentials.
+
+## Future Enhancements
+
+- [ ] Add broader end-to-end coverage for login, cart, and checkout workflows.
+- [ ] Expand data-driven testing.
+- [ ] Integrate REST Assured for API automation.
+- [ ] Add cross-browser execution.
+- [ ] Explore AI-assisted test-case and script generation.
+- [ ] Add AI-assisted failure analysis and debugging suggestions.
+- [ ] Document the framework with an architecture diagram.
+- [ ] Record a project demonstration video.
+
+## Author
+
+**Prashant Kale**
+
+QA Automation Engineer | Selenium WebDriver | Java | TestNG | Maven | API Testing
+
+GitHub: [prashant0312](https://github.com/prashant0312)
+
+---
+
+This project is intended for learning, demonstrating, and improving software test automation engineering practices.
