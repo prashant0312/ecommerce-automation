@@ -6,11 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-
-import com.aiqa.ecommerce.utils.ScreenshotUtil;
 
 public class BaseTest {
 
@@ -45,34 +42,18 @@ public class BaseTest {
         driver.get(BASE_URL);
     }
 
+    public WebDriver getDriverForReporting() {
+    return driver;
+}
+
     @AfterMethod(alwaysRun = true)
-    public void tearDown(ITestResult result) {
-
+    public void tearDown() {
         try {
-            if (result.getStatus() == ITestResult.FAILURE) {
-
-                System.out.println(
-                        "Test failed: " + result.getName());
-
-                String screenshotPath =
-                        ScreenshotUtil.captureScreenshot(
-                                driver, result.getName());
-
-                if (screenshotPath != null) {
-                    System.out.println(
-                            "Failure screenshot saved: "
-                                    + screenshotPath);
-                }
-
-                if (result.getThrowable() != null) {
-                    result.getThrowable().printStackTrace();
-                }
-            }
-        } finally {
             if (driver != null) {
                 driver.quit();
-                driver = null;
             }
+        } finally {
+            driver = null;
         }
     }
 }

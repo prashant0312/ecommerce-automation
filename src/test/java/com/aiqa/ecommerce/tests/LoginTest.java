@@ -40,6 +40,7 @@ public void validLoginTest() {
             loginPage.isLoginSuccessful(username),
             "Login failed. Verify the registered DemoBlaze credentials.");
 }
+
         @Test
         public void invalidLoginTest() {
                 LoginPage loginPage = new LoginPage(driver, wait);
