@@ -1,0 +1,18 @@
+
+# Maven build output and generated test reports
+target/
+test-output/
+screenshots/
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# Java
+*.class
+
+# Local environment files and secrets
+.env
+.env.*
+!.env.example
