@@ -10,7 +10,9 @@
     <test name="Ecommerce Tests">
         <classes>
             <class name="com.aiqa.ecommerce.tests.LoginTest"/>
+            <class name="com.aiqa.ecommerce.tests.CartTest"/>
         </classes>
     </test>
+
 
 </suite>
