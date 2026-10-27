@@ -40,16 +40,16 @@ public class CartPage {
 
         public void addCurrentProductToCart() {
                 By productTitle = By.cssSelector(".name");
-                By addToCartButton = By.linkText("Add to cart");
+                By addToCartLink = By.linkText("Add to cart");
 
-                // Wait for the product details page to load.
-                wait.until(ExpectedConditions.visibilityOfElementLocated(productTitle));
+                wait.until(
+                                ExpectedConditions.visibilityOfElementLocated(productTitle));
 
-                // Wait for the Add to cart link to become clickable.
-                wait.until(ExpectedConditions.elementToBeClickable(addToCartButton)).click();
+                wait.until(
+                                ExpectedConditions.elementToBeClickable(addToCartLink)).click();
 
-                // Accept the browser alert after adding the product.
                 Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+
                 alert.accept();
         }
 
